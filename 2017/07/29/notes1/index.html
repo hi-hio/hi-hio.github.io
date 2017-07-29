@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>get与post需要注意的几点 | hi hio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="1、&amp;quot;get/post&amp;quot; VS &amp;quot;web 中的 get/post&amp;quot; 一些 web 相关职位的面试，无论有没有提 web，面试中的 get/post，一般就是指 web 中的 get/post。需要注意的是，web 中的 get/post 只是 http 中的 get/post 的子集，所以如果谈 get 与 post 的区别，要是面试官有心挖坑，就要特别注意">
+<meta property="og:type" content="article">
+<meta property="og:title" content="get与post需要注意的几点">
+<meta property="og:url" content="http://yoursite.com/2017/07/29/notes1/index.html">
+<meta property="og:site_name" content="hi hio">
+<meta property="og:description" content="1、&amp;quot;get/post&amp;quot; VS &amp;quot;web 中的 get/post&amp;quot; 一些 web 相关职位的面试，无论有没有提 web，面试中的 get/post，一般就是指 web 中的 get/post。需要注意的是，web 中的 get/post 只是 http 中的 get/post 的子集，所以如果谈 get 与 post 的区别，要是面试官有心挖坑，就要特别注意">
+<meta property="og:updated_time" content="2017-07-27T12:56:40.868Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="get与post需要注意的几点">
+<meta name="twitter:description" content="1、&amp;quot;get/post&amp;quot; VS &amp;quot;web 中的 get/post&amp;quot; 一些 web 相关职位的面试，无论有没有提 web，面试中的 get/post，一般就是指 web 中的 get/post。需要注意的是，web 中的 get/post 只是 http 中的 get/post 的子集，所以如果谈 get 与 post 的区别，要是面试官有心挖坑，就要特别注意">
+  
+    <link rel="alternate" href="/atom.xml" title="hi hio" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="hi hio" rel="home"> hi hio </a>
+            
+          </h1>
+          
+          
+            <div class="site-description">start from scratch</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Kategorien</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-notes1" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      get与post需要注意的几点
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/07/29/notes1/" class="article-date">
+	  <time datetime="2017-07-29T08:09:36.737Z" itemprop="datePublished">July 29, 2017</time>
+	</a>
+
+       
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><h1 id="getpost-vs-web-中的-getpost">1、&quot;get/post&quot; VS &quot;web 中的 get/post&quot;</h1><p></p>
+<p>一些 web 相关职位的面试，无论有没有提 web，面试中的 get/post，一般就是指 web 中的 get/post。需要注意的是，web 中的 get/post 只是 http 中的 get/post 的子集，所以如果谈 get 与 post 的区别，要是面试官有心挖坑，就要特别注意下你们聊的是不是 web 中的 get/post。（本文接下去讲的 get/post 基本上是基于 web 的）</p><br><p>关于 get/post，可以查看 rfc-2616 了解详情：</p><br><a id="more"></a><br><ul><br><li>get: <a href="http://tools.ietf.org/html/rfc2616#section-9.3" target="_blank" rel="external">RFC 2616 - Hypertext Transfer Protocol – HTTP/1.1</a></li><br><li>post: <a href="http://tools.ietf.org/html/rfc2616#section-9.5" target="_blank" rel="external">RFC 2616 - Hypertext Transfer Protocol – HTTP/1.1</a></li><br></ul><br><p>其实，<strong>http 中的 get 与 post 只是单纯的名字上的区别</strong>，get 请求的数据也可以放在 request body 中，只是浏览器没有实现它，但是 get 并不只是在 web 中使用。所以，说到 get/post 的区别，会直接条件反射地去说 web 中的 get/post 区别。而 web 中 get 以及 post，其实都可以往服务端发送数据，get 是将数据拼接在 url 上（有必要时需要 encode），而 post 是将数据封装在 request body 中，发送过去。</p><br><p>get/post 可以顾名思义地理解，get 是用来请求数据，那么，既然是请求数据，为什么还要带上数据呢？其实很好理解，比如一个新闻页面，有很多内页，那么 get 请求可能带上的类似这样的参数 <code>page=1</code>，即为请求第一页的数据。post 的话顾名思义就是发送数据，所以需要带上数据。</p><br><h1 id="get-请求是安全和幂等的">2、get 请求是安全和幂等的</h1><br><p>何谓安全？这里的安全指的是在规范的定义下，get 操作不会修改服务器的数据，无论做多少次 get 请求，服务端的数据都是不会有变化的，所以说 get 请求是安全的。&quot;get 请求是安全的&quot; 换句话说就是 &quot;get 请求不产生副作用&quot;，它仅仅是获取资源信息，就像数据库查询一样，不会修改，增加数据，不会影响资源的状态。</p><br><p>何谓幂等？幂等是说，同一个请求原封不动的发送 N 次和 M 次（N 不等于 M，N 和 M 都大于 1），服务器上资源的状态最终是一致的，相应地服务器返回的内容也是一致的。get 请求是幂等的，因为无论请求多少次，服务器上的资源状态不变，而 post 则不然，post 会更新服务器的数据。比如发贴是非幂等的，重复 10 次发贴请求会创建 10 个帖子。但修改帖子内容是幂等的，一个修改请求重复无论多少次，帖子最终状态都是一致的。</p><br><p>关于幂等再举个数学上的例子。对于单目运算，如果一个运算对于在范围内的所有的一个数多次进行该运算所得的结果和进行一次该运算所得的结果是一样的，那么我们就称该运算是幂等的。比如绝对值运算就是一个例子，在实数集中，有 <code>abs(a)=abs(abs(a))</code>。这个例子非常的好，abs(a) 可以表示做了一次 get 请求后的服务器上的资源状态，对其继续做 abs 运算，状态不变，这就好比做了一次 get 请求，继续再做，而该资源状态一直不变，所以请求得到的东西也就不会变。</p><br><p>因此，按照某一 ID 阅览文章就是安全而幂等的，应当使用 get。而注册用户、登录等操作会改变服务器的资源状态，不是安全而幂等的，应当使用 post。</p><br><h1 id="post-相对-get-请求是-安全-的">3、post 相对 get 请求是 &quot;安全&quot; 的</h1><br><p>这里的 &quot;安全&quot;，和第二点所讲的 &quot;安全&quot; 又是两回事了。这里的 &quot;安全&quot; 是密码学上的，也就是大多数场景中 &quot;安全&quot; 的意思。</p><br><p>其实该点颇有点（post）五十步笑（get）百步之嫌。</p><br><p>我们知道，get 请求是将数据附在 url 上，而 post 是将数据封装在 request body 中。所以 get 请求附加的参数可能会被人在浏览器地址栏上直接看到，或者查看一下浏览器的历史记录或者日志，就能看到你的参数。而 post 因为不能被缓存，也不能被保存为书签，所以请求过了就没有记录了？请求参数就不能被截获了？非也，抓个包就可以看到了。</p><br><p>所以，post 请求只是相对安全的。（防君子防不了小人）</p><br><h1 id="get-请求发送数据更小">4、get 请求发送数据更小</h1><br><p>http 协议中的 get/post 并没有发送数据大小的限制，对发送数据大小产生限制的是浏览器以及操作系统、服务器，<strong>http 本身并没有对 url 长度有所限制</strong>。</p><br><p>IE 对 URL 长度的限制是 <a href="https://support.microsoft.com/en-us/kb/208427" target="_blank" rel="external">2083字节</a>（&lt;=IE 8）。对于其他浏览器，如 Netscape、FireFox 等，理论上没有长度限制，其限制取决于操作系统以及服务器的支持。而 chrome 遇到长度很长的 URL 时，会直接 <a href="https://code.google.com/p/chromium/issues/detail?id=69227" target="_blank" rel="external">崩溃</a>。</p><br><p>URL 长了，对服务器处理也是一种负担。原本一个会话就没有多少数据，现在如果有人恶意地构造几个几 M 大小的 URL，并不停地访问你的服务器。服务器的最大并发数显然会下降。另一种攻击方式是，把告诉服务器 Content-Length 是一个很大的数，然后只给服务器发一点儿数据，嘿嘿，服务器你就傻等着去吧。哪怕你有超时设置，这种故意的次次访问超时也能让服务器吃不了兜着走。有鉴于此，多数服务器出于安全啦、稳定啦方面的考虑，会给 URL 长度加限制。</p><br><p>理论上讲，POST 是没有大小限制的，HTTP 协议规范也没有进行大小限制，说 &quot;POST数据量存在80K/100K 的大小限制&quot; 是不准确的，POST 数据是没有限制的，起限制作用的是服务器的处理程序的处理能力。</p><br><h1 id="get-能被缓存post-不能被缓存">5、get 能被缓存，post 不能被缓存</h1><br><p>这点非常容易理解，打开一个页面，如果之前打开过，那么很明显速度会加快，这是因为 html/js/css/img 等文件都能被浏览器缓存（也可以被服务器缓存），而这些文件的获取，都是用的 get 请求。事实上，web 中的绝大多数请求都是用 get 完成的，post 请求目前为止我只是在 ajax 以及 form 表单中有见过。</p><br><p>但是实际上，http 协议中 post 和 get 都是可以被缓存的，不过不要惊讶，浏览器的实现总是比标准厉害。（post 和 get 真的只有名字上的区别啊。。）</p><br><p>因为 get 请求会有缓存，所以在开发过程中，很多时候我们要手动清除缓存，不然看不到修改后的样子。</p><br><p>关于 get 请求能被缓存我有个惨痛的经历。在一次开发中，要做一个跳转页面（假设为 a.index，同时需要在主页面（假设为 index.htm）中带个参数（假设为 tmp）过去，为了方便，直接将参数附加在了跳转页面的 url 上，页面地址为 a.htm?tmp，直接取其 location.search 属性即可获取参数。之后修改了 a.htm 页面的内容，但是发现一直不生效，并且已经清除了 a.htm 页面的缓存，排查了很久，原因很显然，缓存地址为 a.htm?tmp，需要清除该地址的缓存！</p><br><p>所以一般要获取最新的文件（非缓存文件），可以加个类似时间戳一样的参数。</p><br><h1 id="form-表单可以用-get-提交">6、form 表单可以用 get 提交</h1><br><p>form 表单有个 method 属性，一般为 &quot;post&quot;。但是，其实 method 属性是可以为 &quot;get&quot; 的，甚至，默认就是 &quot;get&quot;。</p><br><p>如果是 &quot;post&quot; 方式，数据藏在 request body 中，如果是 &quot;get&quot; 方式，数据拼接在 url 上。但是，一般 form 表示都与 &quot;数据提交&quot; 相辅相成，会对服务端数据做修改，所以一般都是以 &quot;post&quot; 的方式。</p><br><h1 id="求他put-以及-delete">7、求他：put 以及 delete</h1><br><p>说完 get/post，再来简单谈谈他们的其他几个好基友吧。</p><br><p>Http 定义了与服务器交互的不同方法，最基本的方法有 4 种，分别是 GET，POST，PUT，DELETE。URL 全称是资源描述符，我们可以这样认为：一个 URL 地址，它用于描述一个网络上的资源，而 HTTP 中的 GET，POST，PUT，DELETE 就对应着对这个资源的查，改，增，删 4 个操作。</p><br><ul><br><li>GET：无副作用，幂等，不可带 Request Body</li><br><li>PUT：副作用，幂等，可以带 Request Body</li><br><li>POST：副作用，非幂等，可以带 Request Body</li><br><li>DELETE：副作用，幂等，不可带 Request Body</li><br></ul><br><p>get 和 post 成功之后应该返回 200；而 put 和 delete 在成功时则推荐使用 202.</p>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/29/npm/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          npm的安装
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/29/nodejs2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">node.js 学习2</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#getpost-vs-web-中的-getpost"><span class="nav-number">1.</span> <span class="nav-text">1、"get/post" VS "web 中的 get/post"</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#get-请求是安全和幂等的"><span class="nav-number">2.</span> <span class="nav-text">2、get 请求是安全和幂等的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#post-相对-get-请求是-安全-的"><span class="nav-number">3.</span> <span class="nav-text">3、post 相对 get 请求是 "安全" 的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#get-请求发送数据更小"><span class="nav-number">4.</span> <span class="nav-text">4、get 请求发送数据更小</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#get-能被缓存post-不能被缓存"><span class="nav-number">5.</span> <span class="nav-text">5、get 能被缓存，post 不能被缓存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#form-表单可以用-get-提交"><span class="nav-number">6.</span> <span class="nav-text">6、form 表单可以用 get 提交</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求他put-以及-delete"><span class="nav-number">7.</span> <span class="nav-text">7、求他：put 以及 delete</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2017 hi hio All Rights Reserved.
+        
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>

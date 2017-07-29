@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>PHP学习总结2 | hi hio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="PHP的预定义变量   $_GET：获取所有表单以get方式提交的数据 $_POST：POST提交的数据都会保存在此 $_REQUEST：GET和POST提交的都会保存 $GLOBALS：PHP中所有的全局变量 $_SERVER：服务器信息 $_SESSION：session会话数据 $_COOKIE：cookie会话数据 $_ENV：环境信息 $_FILES：用户上传的文件信息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP学习总结2">
+<meta property="og:url" content="http://yoursite.com/2017/07/29/php2/index.html">
+<meta property="og:site_name" content="hi hio">
+<meta property="og:description" content="PHP的预定义变量   $_GET：获取所有表单以get方式提交的数据 $_POST：POST提交的数据都会保存在此 $_REQUEST：GET和POST提交的都会保存 $GLOBALS：PHP中所有的全局变量 $_SERVER：服务器信息 $_SESSION：session会话数据 $_COOKIE：cookie会话数据 $_ENV：环境信息 $_FILES：用户上传的文件信息">
+<meta property="og:updated_time" content="2017-07-27T12:57:11.698Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP学习总结2">
+<meta name="twitter:description" content="PHP的预定义变量   $_GET：获取所有表单以get方式提交的数据 $_POST：POST提交的数据都会保存在此 $_REQUEST：GET和POST提交的都会保存 $GLOBALS：PHP中所有的全局变量 $_SERVER：服务器信息 $_SESSION：session会话数据 $_COOKIE：cookie会话数据 $_ENV：环境信息 $_FILES：用户上传的文件信息">
+  
+    <link rel="alternate" href="/atom.xml" title="hi hio" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="hi hio" rel="home"> hi hio </a>
+            
+          </h1>
+          
+          
+            <div class="site-description">start from scratch</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">Kategorien</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">Tags</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-php2" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      PHP学习总结2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/07/29/php2/" class="article-date">
+	  <time datetime="2017-07-29T08:09:36.745Z" itemprop="datePublished">July 29, 2017</time>
+	</a>
+
+       
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><b>PHP的预定义变量</b></p>
+
+<ul>
+<li>$_GET：获取所有表单以get方式提交的数据</li>
+<li>$_POST：POST提交的数据都会保存在此</li>
+<li>$_REQUEST：GET和POST提交的都会保存</li>
+<li>$GLOBALS：PHP中所有的全局变量</li>
+<li>$_SERVER：服务器信息</li>
+<li>$_SESSION：session会话数据</li>
+<li>$_COOKIE：cookie会话数据</li>
+<li>$_ENV：环境信息</li>
+<li><p>$_FILES：用户上传的文件信息</p>
+<p></p><br><a id="more"></a><br><p><b>可变变量</b></p><br><p>可变变量：如果一个变量保存的值刚好是另外一个变量的名字，那么可以直接通过访问一个变量得到另外一个变量的值：在变量前面再多加一个$符号。</p>
+
+<p>$a = ‘b’;<br>$b = ‘bb’;<br>$$abb</p>
+</li>
+</ul>
+<p></p><p><b>常量</b></p><p></p>
+<ul>
+<li>1、 使用定义常量的函数：define(‘常量名’,常量值);<ul>
+<li>define(‘PI’,3.1415); </li>
+</ul>
+</li>
+<li>2、  5.3之后才有的：const 长两名 = 值;<ul>
+<li>const PI = 3;</li>
+</ul>
+</li>
+</ul>
+<p></p><p><b>常量的命名规则</b></p>  <p></p>
+<ul>
+<li>1、  常量不需要使用“$”符号，一旦使用系统就会认为是变量；</li>
+<li>2、  常量的名字组成由字母、数字和下划线组成，不能以数字开头；</li>
+<li>3、  常量的名字通常是以大写字母为主（与变量以示区别）；</li>
+<li>4、  常量的命名较松散，可使用特殊的字符比如（const -_- = “smile）;但不提倡使用，要尽量使用具有语义化的命名</li>
+</ul>
+<p></p><p><b>php的数据类型</b></p>  <p></p>
+<ul>
+<li><p>简单（基本）数据类型：4个小类</p>
+<ul>
+<li>整型：int/integer，系统分配4个字节存储，表示整数类型（有前提）</li>
+<li>浮点型：float/double，系统分配8个字节存储，表示小数或者整型存不下的整数</li>
+<li>字符串型：string，系统根据实际长度分配，表示字符串（引号）</li>
+<li>布尔类型：bool/boolean，表示布尔类型，只有两个值：true和false</li>
+</ul>
+</li>
+<li><p>复合数据类型：2个小类</p>
+<ul>
+<li>对象类型：object，存放对象（面向对象）</li>
+<li>数组类型：array，存储多个数据（一次性）</li>
+</ul>
+</li>
+<li><p>特殊数据类型：2个小类</p>
+<ul>
+<li>资源类型：resource，存放资源数据（PHP外部数据，如数据库、文件）</li>
+<li>空类型：NULL，只有一个值就是NULL（不能运算）    </li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/29/php3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          PHP学习总结3
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/29/php1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">PHP学习总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav">None</ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2017 hi hio All Rights Reserved.
+        
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
