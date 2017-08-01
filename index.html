@@ -121,7 +121,7 @@
     <div class="article-meta">
       
 	<a href="/2017/08/01/webpack/" class="article-date">
-	  <time datetime="2017-08-01T01:38:52.342Z" itemprop="datePublished">August 1, 2017</time>
+	  <time datetime="2017-08-01T02:39:45.321Z" itemprop="datePublished">August 1, 2017</time>
 	</a>
 
        
@@ -129,75 +129,28 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><p><b>webpack 是对前端的资源进行同意的管理以及打包发布</b></p>
-<p><a href="http://www.css88.com/doc/webpack2/" target="_blank" rel="external">webpack中文文档2.2</a></p>
-</li>
-<li><p></p><p> <b>webpack有那些优点？</b></p><p></p>
-<ul>
-<li>前端性能优化 （一步加载）</li>
-<li>减小代码体积</li>
-<li>加快浏览器解析速度</li>
-</ul>
-</li>
-<li><p><b>配置文件</b></p>
-<ul>
-<li>dist 输出文件</li>
-<li>src 输入文件</li>
-<li>webpack.develop.config.js 开发阶段配置文件</li>
-<li>webpack.publish.config.js 发布阶段配置文件</li>
-<li>package.json 配置文件 文件依赖 命令行 等 </li>
-<li>.babelrc</li>
-<li>node_modules 依赖的包，自动生成</li>
-</ul>
-</li>
-<li><p><b>packsge.json 字段</b>：</p>
-<p><a href="http://blog.csdn.net/woxueliuyun/article/details/39294375" target="_blank" rel="external">packsge.json 字段全解</a></p>
-<ul>
-<li>name : 这个名字最终会是URL的一部分，命令行的参数，目录名，所以不能以点号或下划线开头；这个名字可能在require()方法中被调用，所以应该尽可能短</li>
-<li>version ： 必填字段，版本号</li>
-<li>description ： 可选字段，必须是字符串。npm search的时候会用到。</li>
-<li>main ： 可选字段。这个字段的值是你程序主入口模块的ID。如果其他用户需要你的包，当用户调用require()方法时，返回的就是这个模块的导出（exports）</li>
-<li>scripts： 字段是一个对象。它的每一个属性，对应一段脚本。命令行下使用npm run命令，就可以执行这段脚本。</li>
-<li>author ： </li>
-<li>license ：</li>
-<li>devDependencies ： 可选字段。如果只需要下载使用某些模块，而不下载这些模块的测试和文档框架，放在这个下面比较不错。</li>
-<li>dependencies ：  可选字段，指示当前包所依赖的其他包。 </li>
-</ul>
-</li>
-</ul>
-<h5 id="webpack-develop-config-js-开发阶段配置文件"><a href="#webpack-develop-config-js-开发阶段配置文件" class="headerlink" title="webpack.develop.config.js 开发阶段配置文件 "></a><b>webpack.develop.config.js 开发阶段配置文件 </b></h5><ul>
-<li><p>需要引入的包</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>); </div><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</div></pre></td></tr></table></figure>
-</li>
-<li><p>自动打开浏览器插件(可选)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> OpenBrowserPlugin = <span class="built_in">require</span>(<span class="string">'open-browser-webpack-plugin'</span>)</div></pre></td></tr></table></figure>
-</li>
-<li><p>暴露模块</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;&#125;;</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"><span class="string"> - 模块内容</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string"> - 开发工具（Devtool）： </span></div><div class="line"><span class="string">  + eval - 每个模块都使用 eval() 执行，并且都有 //@ sourceURL。此选项会相当快地构建。主要缺点是，由于会映射到转换后的代码，而不是映射到原始代码，所以不能正确的显示显示行数。</span></div><div class="line"><span class="string">`</span><span class="string">``</span>javascript</div><div class="line">devtool: <span class="string">'eval'</span></div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"><span class="string"> - 输入文件 (入口)===&gt;[入口起点](http://www.css88.com/doc/webpack2/concepts/entry-points/)</span></div><div class="line"><span class="string">`</span><span class="string">``</span>javascript</div><div class="line"><span class="comment">//单一引用 </span></div><div class="line">entry: path.resolve(__dirname, <span class="string">'src/js/app.js'</span>) </div><div class="line"><span class="comment">//对象引用 </span></div><div class="line">entry: &#123;</div><div class="line">    app: <span class="string">'./src/app.js'</span>,</div><div class="line">    vendors: <span class="string">'./src/vendors.js'</span></div><div class="line">  &#125;</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"><span class="string"> - 输出文件 ===&gt; [输入](http://www.css88.com/doc/webpack2/concepts/output/)</span></div><div class="line"><span class="string">`</span><span class="string">``</span>javascript</div><div class="line"> output: &#123;</div><div class="line">        <span class="comment">//path.resolve 方法会把一个路径或路径片段的序列解析为一个绝对路径</span></div><div class="line">        path: path.resolve(__dirname, <span class="string">'dist'</span>), <span class="comment">// 输出的文件夹</span></div><div class="line">        filename: <span class="string">'bundle.js'</span>, <span class="comment">// 输出的文件名</span></div><div class="line">        sourceMapFilename: <span class="string">'[name].map'</span></div><div class="line">    &#125;,</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"><span class="string"> - [开发中 Server(DevServer)](http://www.css88.com/doc/webpack2/configuration/dev-server/)</span></div><div class="line"><span class="string">   + 描述影响 webpack-dev-server(简写为：dev-server) 行为的选项。</span></div><div class="line"><span class="string">    * contentBase : 告诉服务器从哪里提供内容。只有在你想要提供静态文件时才需要。</span></div><div class="line"><span class="string">    * compress: true : 一切服务都启用gzip 压缩：</span></div><div class="line"><span class="string">    * inline ： true （默认）只用在命令行工具(CLI)</span></div><div class="line"><span class="string">    * historyApiFallback: true,当使用HTML5 History API，任意的 404 响应可以提供为 index.html 页面。</span></div><div class="line"><span class="string">    * noInfo ： true 启用 noInfo 后，诸如「启动时和每次保存之后，那些显示的 webpack 包(bundle)信息」的消息将被隐藏。错误和警告仍然会显示。</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string"> - &lt;b style="font-size: 20px"&gt;[加载器loader](http://www.css88.com/doc/webpack2/concepts/loaders/)&lt;/b&gt;===&gt;</span></div><div class="line"><span class="string"> [提供一些加载器](http://www.css88.com/doc/webpack2/loaders/)</span></div><div class="line"><span class="string">`</span><span class="string">``</span>javascript</div><div class="line"><span class="built_in">module</span> : &#123;</div><div class="line">    rules:[</div><div class="line">         &#123;</div><div class="line">                 <span class="comment">// 处理js和jsx语法到es5</span></div><div class="line">                test: <span class="regexp">/\.jsx?$/</span>,</div><div class="line">                exclude: <span class="regexp">/node_modules/</span>,</div><div class="line">                use: [</div><div class="line">                    &#123;</div><div class="line">                        loader: <span class="string">"babel-loader"</span>,</div><div class="line">                        <span class="comment">// options:&#123;</span></div><div class="line">                        <span class="comment">//     presets: ['es2015', 'react']</span></div><div class="line">                        <span class="comment">// &#125;</span></div><div class="line">                    &#125;</div><div class="line">                ]</div><div class="line"></div><div class="line">            &#125;,</div><div class="line">            <span class="comment">// 处理在js中引用scss文件</span></div><div class="line">            &#123;</div><div class="line">                test: <span class="regexp">/\.scss$/</span>,</div><div class="line">                use: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>, <span class="string">'sass-loader'</span>],</div><div class="line">            &#125;,</div><div class="line">            ......</div><div class="line">    ]</div><div class="line">&#125;</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"><span class="string">  + loader 是对应用程序中资源文件进行转换。它们是（运行在 Node.js 中的）函数，可以将资源文件作为参数的来源，然后返回新的资源文件。</span></div><div class="line"><span class="string">  + 例如：使用 loader 告诉 webpack 加载 CSS 文件，或者将 TypeScript 转为 JavaScript。首先，安装相对应的 loader</span></div><div class="line"><span class="string">`</span><span class="string">``</span>javascript</div><div class="line">npm install --save-dev css-loader</div><div class="line">...</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"><span class="string">  + 应用程序中，有三种方式使用 loader：</span></div><div class="line"><span class="string">    * 通过配置</span></div><div class="line"><span class="string">    * 在 require 语句中显示使用</span></div><div class="line"><span class="string">    * 通过 CLI   （命令行）</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">  + 处理文件扩展名（这个属性和热重载是冲突的，有热重载就不要写）</span></div><div class="line"><span class="string"> `</span><span class="string">``</span>javascript</div><div class="line"> resolve: &#123;</div><div class="line">        <span class="comment">// 帮我们处理文件的扩展文件名，这个属性和热重载是冲突的</span></div><div class="line">         extensions: [<span class="string">''</span>, <span class="string">'.js'</span>, <span class="string">'.json'</span>, <span class="string">'.scss'</span>, <span class="string">'jsx'</span>,...]</div><div class="line">     &#125;,</div><div class="line"> <span class="string">``</span><span class="string">`   </span></div><div class="line"><span class="string"> - &lt;b style="font-size: 20px"&gt;[插件Plugins](http://www.css88.com/doc/webpack2/concepts/plugins/)&lt;/b&gt;===&gt;</span></div><div class="line"><span class="string">  [第三方插件包](https://github.com/webpack-contrib/awesome-webpack#webpack-plugins)===&gt;</span></div><div class="line"><span class="string">[插件包](http://www.css88.com/doc/webpack2/plugins/)</span></div><div class="line"><span class="string">   + 插件是 wepback 的支柱功能。在你使用 webpack 配置时，webpack 自身也构建于同样的插件系统上！</span></div><div class="line"><span class="string">   + 插件目的在于解决 loader 无法实现的其他事。 </span></div><div class="line"><span class="string">   + 由于 plugin 可以携带参数/选项，你必须在 wepback 配置中，向 plugins 属性传入 new 实例。</span></div><div class="line"><span class="string">   + 自带插件可直接使用</span></div><div class="line"><span class="string">   + 插件通过 npm 下载，通过 require 引用之后可使用</span></div><div class="line"><span class="string">`</span><span class="string">``</span>javascript</div><div class="line">plugins: [</div><div class="line">        <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),</div><div class="line">        <span class="keyword">new</span> OpenBrowserPlugin(&#123;<span class="attr">url</span>: <span class="string">'http://localhost:8080/'</span>, <span class="attr">browser</span>: <span class="string">'chrome'</span>&#125;)</div><div class="line">    ]</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="webpack-publish-config-js-开发阶段配置文件"><a href="#webpack-publish-config-js-开发阶段配置文件" class="headerlink" title="webpack.publish.config.js 开发阶段配置文件 "></a><b>webpack.publish.config.js 开发阶段配置文件 </b></h5><ul>
-<li><p>引用依赖的包</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</div><div class="line">...</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"><span class="string"> - 引用需要用到的插件</span></div><div class="line"><span class="string">`</span><span class="string">``</span>javascript</div><div class="line"><span class="comment">// 删除文件夹的</span></div><div class="line"><span class="keyword">var</span> CleanPlugin = <span class="built_in">require</span>(<span class="string">'clean-webpack-plugin'</span>)</div><div class="line"><span class="comment">// 自动生成html页面的插件</span></div><div class="line"><span class="keyword">var</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</div><div class="line"><span class="comment">// 抽取css文件插件</span></div><div class="line"><span class="keyword">var</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>)</div><div class="line">....</div></pre></td></tr></table></figure>
-</li>
-<li><p>暴露文件</p>
-</li>
-</ul>
-<pre><code class="javascript"><span class="built_in">module</span>.exports = {
-};
-</code></pre>
-<ul>
-<li>开发工具（devtool）<ul>
-<li>source-map：生成完整的 SourceMap，输出为独立文件。由于在 bundle 中添加了引用注释，所以开发工具知道在哪里去找到 SourceMap。</li>
-</ul>
-</li>
-<li>输入文件</li>
-<li>输出文件</li>
-<li>加载器</li>
-<li>插件 </li>
-</ul>
+        
 
+          
+          <div class="entry-summary">
+          
+webpack 是对前端的资源进行同意的管理以及打包发布
+webpack中文文档2.2
+
+ webpack有那些优点？
+
+前端性能优化 （一步加载）
+减小代码体积
+加快浏览器解析速度
+
+
+
+
+        
+          <p class="article-more-link">
+            <a href="/2017/08/01/webpack/#more">Continue Reading →</a>
+          </p>
+        </div>
       
     </div>
     <footer class="entry-meta entry-footer">
