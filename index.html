@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hi hio</title>
+  <title>Seite 1 | hi hio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
@@ -103,6 +103,139 @@
       <div id="content" class="outer">
         
           <section id="main">
+  
+    <article id="post-http"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/08/05/http/">前端性能优化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/08/05/http/" class="article-date">
+	  <time datetime="2017-08-05T08:40:48.962Z" itemprop="datePublished">August 5, 2017</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="减少http的请求次数"><a href="#减少http的请求次数" class="headerlink" title="减少http的请求次数"></a>减少http的请求次数</h4><ul>
+<li>精灵图 （css雪碧，css Sprite）</li>
+<li>字体图标</li>
+<li>合并 js css</li>
+<li>利用缓存</li>
+</ul>
+<h4 id="使用缓存"><a href="#使用缓存" class="headerlink" title="使用缓存"></a>使用缓存</h4><ul>
+<li>Expires </li>
+<li>Cache-control: max-age</li>
+<li>Last-Modified<h4 id="避免跳转"><a href="#避免跳转" class="headerlink" title="避免跳转"></a>避免跳转</h4><h4 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h4><h4 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h4><h4 id="减少DOM元素数量"><a href="#减少DOM元素数量" class="headerlink" title="减少DOM元素数量"></a>减少DOM元素数量</h4><h4 id="Gzip压缩文件内容"><a href="#Gzip压缩文件内容" class="headerlink" title="Gzip压缩文件内容"></a>Gzip压缩文件内容</h4><h4 id="使用-get-来请求-ajax-get有缓存"><a href="#使用-get-来请求-ajax-get有缓存" class="headerlink" title="使用 get 来请求 ajax   get有缓存"></a>使用 get 来请求 ajax   get有缓存</h4><h4 id="在页面底部使用脚本"><a href="#在页面底部使用脚本" class="headerlink" title="在页面底部使用脚本"></a>在页面底部使用脚本</h4><h4 id="在顶部使用link"><a href="#在顶部使用link" class="headerlink" title="在顶部使用link"></a>在顶部使用link</h4><h4 id="打包组件"><a href="#打包组件" class="headerlink" title="打包组件"></a>打包组件</h4>  ….</li>
+</ul>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-react"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/08/02/react/">react</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/08/02/react/" class="article-date">
+	  <time datetime="2017-08-02T11:39:36.437Z" itemprop="datePublished">August 2, 2017</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>src <ul>
+<li>index.html</li>
+<li>tempalte.html</li>
+<li>js</li>
+<li>images</li>
+<li>container (复用的组件)</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>index.html</p>
+<ul>
+<li>容器</li>
+<li>javascript 引用 bundle.js </li>
+</ul>
+</li>
+<li><p>js</p>
+<ul>
+<li><p>app.js</p>
+<ul>
+<li>主体 js内容</li>
+<li>先引用必须的库</li>
+<li><p>引用 路由 模块 router.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React,&#123;Component&#125; <span class="keyword">from</span> <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span></div><div class="line"><span class="keyword">import</span> Routers <span class="keyword">from</span> <span class="string">'./Routers.js'</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>组件渲染(把路由内容渲染到  app  的节点内)</p>
+<pre><code class="javascript">ReactDOM.render(
+&lt;div&gt;
+&lt;Routers/&gt;
+&lt;<span class="regexp">/div&gt;,</span>
+<span class="regexp">document.getElementById('app')</span>
+<span class="regexp">)</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
   
     <article id="post-webpack"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
@@ -544,123 +677,11 @@ php语言的创建者：Rasmus Lerdorf平台支持（window，Linux，UNIX）数
 <!-- Table of Contents -->
 
   
-    <article id="post-notes1"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/07/29/notes1/">get与post需要注意的几点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/07/29/notes1/" class="article-date">
-	  <time datetime="2017-07-29T08:09:36.737Z" itemprop="datePublished">July 29, 2017</time>
-	</a>
-
-       
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-
-          
-          <div class="entry-summary">
-          1、&quot;get/post&quot; VS &quot;web 中的 get/post&quot;
-一些 web 相关职位的面试，无论有没有提 web，面试中的 get/post，一般就是指 web 中的 get/post。需要注意的是，web 中的 get/post 只是 http 中的 get/post 的子集，所以如果谈 get 与 post 的区别，要是面试官有心挖坑，就要特别注意下你们聊的是不是 web 中的 get/post。（本文接下去讲的 get/post 基本上是基于 web 的）关于 get/post，可以查看 rfc-2616 了解详情：
-
-        
-          <p class="article-more-link">
-            <a href="/2017/07/29/notes1/#more">Continue Reading →</a>
-          </p>
-        </div>
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-nodejs2"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/07/29/nodejs2/">node.js 学习2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/07/29/nodejs2/" class="article-date">
-	  <time datetime="2017-07-29T08:09:36.734Z" itemprop="datePublished">July 29, 2017</time>
-	</a>
-
-       
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-
-          
-          <div class="entry-summary">
-          ES6ES6的变量声明
-
-let     变量声明
-不存在与解析
-不允许重复
-块级作用域（块内部的变量，外部不可访问）1234567    if(true) &#123;    var num = 123;    let sub = 456;&#125;console.log(num);console.log(sub); //报错:ReferenceError: sub is not defined
-
-
-
-
-
-        
-          <p class="article-more-link">
-            <a href="/2017/07/29/nodejs2/#more">Continue Reading →</a>
-          </p>
-        </div>
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">weiter</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">weiter</a>
   </nav>
 
 </section>
@@ -766,6 +787,30 @@ let     变量声明
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2017/08/05/http/">前端性能优化</a></h6>
+              <span>August 5, 2017</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
+              <h6 style="margin: 0;"><a href="/2017/08/02/react/">react</a></h6>
+              <span>August 2, 2017</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2017/08/01/webpack/">从 webpack 开始</a></h6>
               <span>August 1, 2017</span>
             </div>
@@ -808,30 +853,6 @@ let     变量声明
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2017/07/29/php3/">PHP学习总结3</a></h6>
-              <span>July 29, 2017</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2017/07/29/php2/">PHP学习总结2</a></h6>
-              <span>July 29, 2017</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -850,7 +871,7 @@ let     变量声明
     <h3 class="widget-title">Archiv</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">18</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">18</span></li></ul>
     </div>
   </div>
 
